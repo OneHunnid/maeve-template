@@ -51,6 +51,10 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .logo {
@@ -68,10 +72,16 @@ body {
   &-wordmark {
     margin-left: 8px;
     font-size: 18px;
+    font-weight: 500;
   }
 }
 
-.site-navigation { }
+.site-navigation {
+
+  @media (max-width: 600px) {
+    margin-top: 1.5em;
+  }
+}
 
 .site-navigation-list {
   padding: 0;
@@ -84,6 +94,10 @@ body {
 
   & + .site-navigation-item {
     margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &:after {
@@ -106,6 +120,7 @@ body {
     color: @white;
     text-decoration: none;
     opacity: 0.6;
+    font-weight: 500;
 
     &:hover {
       opacity: 1;
@@ -131,6 +146,10 @@ body {
   max-width: 50em;
   padding: 4em 6em;
   font-size: @size-lg;
+
+  @media (max-width: 712px) {
+    padding: 2em 2em;
+  }
 }
 
 .site-footer {
@@ -164,6 +183,12 @@ body.homepage {
   & p {
     margin: 0;
   }
+
+  @media (max-width: 640px) {
+    margin: 0 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
 }
 
 .blog-list {
@@ -176,25 +201,21 @@ body.homepage {
   margin: 0 auto;
   margin-bottom: 8em;
   justify-content: center;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 289px 289px 289px;
+  }
+
+  @media screen and (max-width: 941px) {
+    grid-template-columns: 289px 289px;
+  }
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: auto;
+    margin: 0 2em;
+  }
 }
 
-@media screen and (max-width: 1200px) {
-    .blog-list {
-      grid-template-columns: 289px 289px 289px;
-    }
-}
-
-@media screen and (max-width: 941px) {
-    .blog-list {
-      grid-template-columns: 289px 289px;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .blog-list {
-      grid-template-columns: auto;
-    }
-}
 
 .blog-list-item {
   background: @midnight;
@@ -265,6 +286,11 @@ body.collection-type-blog {
     left: 0;
     right: 0;
     z-index: 9999;
+
+    @media (max-width: 600px) {
+      position: relative;
+      background: @black;
+    }
   }
 
   & .site-header-on-scroll {
