@@ -9,30 +9,32 @@
   </head>
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}">
 
+    <header class="site-header" id="siteHeader">
+      <!-- site title or logo -->
+      {.section website}
+        <h1 data-content-field="site-title">
+          <a href="/" class="logo">
+            <svg class="logo-icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 50.000000 50.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,50.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M181 489 c-80 -23 -148 -94 -170 -174 -12 -42 -15 -115 -5 -115 3 0 17 14 32 31 35 43 96 69 160 69 l52 0 0 100 c0 111 1 109 -69 89z"></path>
+                <path d="M350 340 l0 -130 76 0 77 0 -6 60 c-3 39 -14 76 -31 105 -26 44 -82 95 -104 95 -9 0 -12 -38 -12 -130z"></path>
+                <path d="M155 206 c-37 -17 -54 -44 -61 -99 -7 -49 10 -70 73 -93 94 -33 206 -4 272 72 l35 39 -112 3 -112 3 0 38 c0 53 -32 65 -95 37z"></path>
+              </g>
+            </svg>
+            <div class="logo-wordmark">{siteTitle}</div>
+          </a>
+        </h1>
+      {.end}
+
+      <!-- site navigation -->
+      <squarespace:navigation navigationId="siteNav" template="site-navigation" />
+    </header>
+
     <div class="site-container">
-
-      <header class="site-header">
-        <!-- site navigation -->
-        <squarespace:navigation navigationId="siteNav" template="site-navigation" />
-
-        <!-- site title or logo -->
-        {.section website}
-          <h1 class="site-title-heading" data-content-field="site-title">
-            <a href="/" class="site-title-link">{siteTitle}</a>
-          </h1>
-        {.end}
-      </header>
-
       <!-- cms content injection point -->
       <main class="content-container" role="main" data-content-field="main-content">
        {squarespace.main-content}
       </main>
-
-      <!--Footer with open block field -->
-      <footer class="site-footer">
-        <squarespace:block-field id="footerBlocks" columns="12" />
-      </footer>
-
     </div>
 
     <!-- combo and minify scripts when not logged in -->

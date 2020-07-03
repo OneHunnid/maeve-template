@@ -3,77 +3,60 @@
 
   <!--WRAPPER-->
   <article id="post-{id}" class="{@|item-classes}" data-item-id="{id}">
+    <div class="blog-item-hero">
 
-    <!--POST TILE-->
-    <h1 class="title" data-content-field="title">
-      {.passthrough?}
-        <a href="{sourceUrl}" target="_blank">{title}</a>
-      {.or}
-        {title}
+      {.main-image?}
+        <div class="blog-item-hero-image content-fill">
+          <img {@|image-meta} />
+        </div>
       {.end}
-    </h1>
 
-    <!--AUTHOR AND DATE-->
-    <p class="meta">
-      <a href="{fullUrl}" class="permalink"><time datetime="{addedOn|date %F}">{addedOn|date %B %d, %Y}</time></a> by <a href="{collection.fullUrl}?author={author.id}">{author.displayName}</a>
-    </p>
+      <div class="blog-item-hero-container">
+        <h1 class="blog-item-title" data-content-field="title">
+          {title}
+        </h1>
+
+        {.excerpt?}
+          <div class="blog-item-excerpt">
+            {excerpt}
+          </div>
+        {.end}
+
+        <div class="blog-item-date">Published on {addedOn|date %D}</div>
+      </div>
+    </div>
 
     <!--MAIN CONTENT-->
-    {body}
+    <div class="blog-item-container">
+      <div class="blog-item-wrapper">
+        {body}
+      </div>
+    </div>
 
     <!--BLOG INJECTION-->
     {postItemInjectCode}
-
-    <!--CATEGORIES-->
-    {.repeated section categories}
-      <a class="category" href="{collection.fullUrl}?category={@|url-encode}">{@}</a>{.alternates with},
-    {.end}
-
-    <!--TAGS-->
-    {.repeated section tags}
-      <a class="tag" href="{collection.fullUrl}?tag={@|url-encode}">{@}</a>{.alternates with},
-    {.end}
-
-    <!--SHARE AND LIKE-->
-    {@|like-button}
-    {@|social-button}
-
-
-    <!--LOCATION-->
-    {.section location}
-      {.section addressTitle}
-        {addressTitle}
-        {addressLine1}
-        {addressLine2}
-        {addressCountry}
-      {.end}
-    {.end}
-
-    <!--COMMENTS-->
-    {@|comments}
-
   </article>
 
 {.end}
 
 
 <!--PAGINATION-->
-{.section pagination}
+<!-- {.section pagination}
   <nav class="blog-item-pagination">
 
     <!--NEWER PAGE-->
-    {.section prevItem}
+    <!-- {.section prevItem}
       <a href="{fullUrl}">Newer</a>
     {.or}
       <a class="disabled">Newer</a>
     {.end}
 
     <!--OLDER PAGE-->
-    {.section nextItem}
+    <!-- {.section nextItem}
       <a href="{fullUrl}">Older</a>
     {.or}
       <a class="disabled">Older</a>
-    {.end}
+    {.end} -->
 
-  </nav>
-{.end}
+  <!-- </nav> -->
+<!-- {.end} -->

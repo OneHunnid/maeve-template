@@ -24,3 +24,21 @@
   window.addEventListener('resize', loadAllImages);
 
 }());
+
+
+window.onscroll = function() {headerScroll()};
+
+// Get the header
+const header = document.getElementById("siteHeader");
+
+// Get the offset position of the navbar
+const sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function headerScroll() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("site-header-on-scroll");
+  } else {
+    header.classList.remove("site-header-on-scroll");
+  }
+}
